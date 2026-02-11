@@ -11,7 +11,7 @@
 define('NUKI_TOKEN', '6920200e78a5800ebc73c1149d0de58ee41cf8d278e0eccd09ca4bcb90f2fa0b7c1478f6277c083d');
 define('SMARTLOCK_ID', 22693880943);
 define('EHOLO_BASE', 'https://app.eholo.health');
-define('EHOLO_TOKEN', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI2IiwianRpIjoiNmYxOGEyM2IxZmQxOWUzZGNmZmQzMzZhZTM2NzZjMTk2ODdjZTBhZWNhZjk0M2EzNDM4ZjI5Y2I2ZTlhYTEwN2FlNzE3MTIzNGM4OTA5OTciLCJpYXQiOjE3NTA5MzcxMDMuODA5Mzg4LCJuYmYiOjE3NTA5MzcxMDMuODA5MzksImV4cCI6MTc4MjQ3MzEwMy44MDA2NzYsInN1YiI6IjEzNzY5Iiwic2NvcGVzIjpbXX0.iwbl4GJxflfSxP_NYprwpEd4vGzwwDPYoQsy8hQeREDfp-ciaUu1MehtyNz-CstAyx9wJuP6NgTb-IGDN-mp4ZRy304rKddqLo-pVqIYXfTZ1Ha82Ax86QjWrkdM13WqFFMbq_UpGVZesPko_6_ZgbbScd40w_dKdasPChvxJf18_yJfQQA1Gpa31AwwdxKuxV0xDL7IYydNnRcU2QQw0rgmmUMv5cRuaoH_9yVovKR_E9HVLGXOHU0N-ZqZXiflM34PVJM_uRhIVUGuoMBbaWm9fv6Q_zaHiq03PyjvqRoX_gaUeDs22v1j6juo01dJNYVX_MgsGamTYohyktt2uikhJYi0BV4Ao6EB-_zxKjmVb2rupu1wclEdadPg_aEaFSLlPP7c35y47YYgu_O1bGxbjxwxWqeUv_PYn7VzdWt3IZPINUgXs3uY4LXfVIwyamjusZeDpn1IVN1s5J1ibLIwkvL2YFkHlZcmkRvsRWudNPQQyreXVXG9sIogeypb-4i2YyzO1VejHE1g_K2JW9zfD1XALCxEeEPEKhMnWKTXu_v-0iCoTKpgvPzKn4mPyyjpmsSEtgmxpfFy7YRqTpQNoKcjzOaTPiJQm0Kt9x_GCEosmbv67niLPqf6fEmbyG5HMjRSj1skvdcDQDrGCycREJ4OScaS1m7lLnGwixg'); // Bearer token
+define('EHOLO_TOKEN', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI2IiwianRpIjoiNmMxYjBjYWMzMGNlNDcxYTdkYTg5Yzc4NTc0M2M2NTFhMTNlMDJhNGZlMWRkZjE2NDE2NTViOTBjNTZhMGJmOTcxMDdhMTc0MWRhYmNkYTYiLCJpYXQiOjE3MzIzNTI1ODUuMDM0NTU3LCJuYmYiOjE3MzIzNTI1ODUuMDM0NTU5LCJleHAiOjE3NjM4ODg1ODUuMDI3MTIzLCJzdWIiOiIxMDY4MCIsInNjb3BlcyI6W119.mclIfALttuOYTpxrst1TiyEFZ613szdQdklezwnzHTLqUvLBBvaSJ6vHqyH_w3sNMzDBHIVv4wArvrkhsCudlHrQ53b4bOJveRZ6sceADq5ek1gdggtWzZtWncVEeODO5ZTa10IKe3N5nqVs3aKp-Q_pVUUfRtVleqgRmIdlRuVP0n5VRKg9QGhh_PQMdr8ujc2xtr_EUpsl1BhMqOxtKnVGo32pYylkpFyVR6F6pKD9D67VetU3ULSNPf0cp8S3UCZcHMkFlyJWzX0EpaSDI-3FSPLnq7jNNbwDJ6s3PLWPpnMfHl3DNQGfVe6ThYo41-6e_fyRUhC4XFh3MXNc7pAnPlsNLngFiG6R7VphnVIDGao9p8ovG1EwjYXUyrWQm88-wg_f4UcrWVaaHAqzAaIRXrXnJIq3HOUYcpvIvLICmCvIoF_W8sq45OXFCiinZHZwYDh26pt3uKxOebYhrg36cQ_4ZD8idlrpEk9tuyyHvPhjgDQNQQv1dvnpUeucBtk5Fikij11NjOkTtkslOYe8VhA7NZTGxCdF1WYn0HkAFECE31_Af4DrHO8GrMkggQm9PIlL12QKrutPhcY40qoDyz9OAnEqbQWsfS-Kerg4AguE9yalpqN3yvpUABB1HnGdjdxn7SaifVZJ_SkMdK-SXG6Jw5Nno_o9iSSppkc'); // Bearer token
 define('EHOLO_ORG_ID', 11091); // tu organization id (puedes obtenerlo con /api/get-organizations)
 
 
@@ -327,8 +327,9 @@ function nuki_build_reminder_email($session, $link)
 
 function nuki_run_eholo_reminders($dry_run = true)
 {
-  $from_api = gmdate('Y-m-d H:i:s', time() + 24 * HOUR_IN_SECONDS);
-  $to_api   = gmdate('Y-m-d H:i:s', time() + 25 * HOUR_IN_SECONDS);
+  $from_api = gmdate('Y-m-d H:i:s', time() + 2 * HOUR_IN_SECONDS);
+  $to_api   = gmdate('Y-m-d H:i:s', time() + 3 * HOUR_IN_SECONDS);
+
 
   $payload = [
     'from' => $from_api,
@@ -550,7 +551,7 @@ function nuki_test_page()
       echo "<p><strong>Total sessions (Eholo):</strong> " . esc_html((string)($result['total_sessions'] ?? '')) . "</p>";
 
       if (empty($result['items'])) {
-        echo "<p>No hay sesiones en la ventana (now+24h → now+25h).</p>";
+        echo "<p>No hay sesiones.</p>";
       } else {
         foreach ($result['items'] as $it) {
           echo "<hr>";
